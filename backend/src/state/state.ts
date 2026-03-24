@@ -19,6 +19,9 @@ class ResortState {
     }
     return this.instance;
   }
+  getResortLayout() {
+    return this.resortLayout;
+  }
   readResortMap() {
     const data = fs.readFileSync(RESORT_MAP_PATH, "utf-8");
     const lines = data.split("\n");
