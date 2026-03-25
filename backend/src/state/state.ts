@@ -47,6 +47,14 @@ class ResortState {
     const data = fs.readFileSync(BOOKINGS_PATH, "utf-8");
     this.bookings = JSON.parse(data) as Booking[];
   }
+  checkIfBookingDataIsValid(bookingData: Booking) {
+    const filtredBookings = this.bookings.filter((booking) => {
+      return (
+        booking.name === bookingData.name && booking.room === bookingData.room
+      );
+    });
+    return !!filtredBookings.length;
+  }
   findCabanaById(cabanaId: string) {
     for (const row of this.resortLayout) {
       for (const obj of row) {
