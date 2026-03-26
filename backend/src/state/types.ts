@@ -13,7 +13,7 @@ export type LegendValues = Legend[LegendKeys];
 
 export type Booking = {
   id: UUID;
-  name: string;
+  guestName: string;
   room: number;
 };
 
