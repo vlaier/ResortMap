@@ -62,11 +62,11 @@ export const renderResortTile = (
       );
     default:
       return (
-        <img
-          src="./src/assets/parchmentBasic.png"
-          alt="Chalet"
-          width={20}
-          height={20}
+        <div
+          style={{
+            width: 20,
+            height: 20,
+          }}
         />
       );
   }
