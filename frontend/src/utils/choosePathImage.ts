@@ -1,4 +1,9 @@
 import type { ResortObject } from "../types/types";
+import arrowCornerSquare from "../assets/arrowCornerSquare.png";
+import arrowCrossing from "../assets/arrowCrossing.png";
+import arrowEnd from "../assets/arrowEnd.png";
+import arrowSplit from "../assets/arrowSplit.png";
+import arrowStraight from "../assets/arrowStraight.png";
 
 type PathNeighbours = Record<string, ResortObject | undefined>;
 
@@ -9,105 +14,105 @@ export const choosePathImage = (neighbours?: PathNeighbours) => {
     neighbours?.top?.type === "#" &&
     neighbours?.bottom?.type === "#"
   )
-    return { path: "./src/assets/arrowCrossing.png", rotation: 0 };
+    return { path: arrowCrossing, rotation: "0deg" };
   if (
     neighbours?.left?.type !== "#" &&
     neighbours?.right?.type === "#" &&
     neighbours?.top?.type === "#" &&
     neighbours?.bottom?.type === "#"
   )
-    return { path: "./src/assets/arrowSplit.png", rotation: 0 };
+    return { path: arrowSplit, rotation: "0deg" };
   if (
     neighbours?.left?.type === "#" &&
     neighbours?.right?.type === "#" &&
     neighbours?.top?.type === "#" &&
     neighbours?.bottom?.type !== "#"
   )
-    return { path: "./src/assets/arrowSplit.png", rotation: "-90deg" };
+    return { path: arrowSplit, rotation: "-90deg" };
   if (
     neighbours?.left?.type === "#" &&
     neighbours?.right?.type === "#" &&
     neighbours?.top?.type !== "#" &&
     neighbours?.bottom?.type === "#"
   )
-    return { path: "./src/assets/arrowSplit.png", rotation: "90deg" };
+    return { path: arrowSplit, rotation: "90deg" };
   if (
     neighbours?.left?.type === "#" &&
     neighbours?.right?.type !== "#" &&
     neighbours?.top?.type === "#" &&
     neighbours?.bottom?.type === "#"
   )
-    return { path: "./src/assets/arrowSplit.png", rotation: "180deg" };
+    return { path: arrowSplit, rotation: "180deg" };
   if (
     neighbours?.left?.type !== "#" &&
     neighbours?.right?.type !== "#" &&
     neighbours?.top?.type === "#" &&
     neighbours?.bottom?.type === "#"
   )
-    return { path: "./src/assets/arrowStraight.png", rotation: 0 };
+    return { path: arrowStraight, rotation: "0deg" };
   if (
     neighbours?.left?.type === "#" &&
     neighbours?.right?.type === "#" &&
     neighbours?.top?.type !== "#" &&
     neighbours?.bottom?.type !== "#"
   )
-    return { path: "./src/assets/arrowStraight.png", rotation: "90deg" };
+    return { path: arrowStraight, rotation: "90deg" };
   if (
     neighbours?.left?.type !== "#" &&
     neighbours?.right?.type === "#" &&
     neighbours?.top?.type === "#" &&
     neighbours?.bottom?.type !== "#"
   )
-    return { path: "./src/assets/arrowCornerSquare.png", rotation: 0 };
+    return { path: arrowCornerSquare, rotation: "0deg" };
   if (
     neighbours?.left?.type !== "#" &&
     neighbours?.right?.type === "#" &&
     neighbours?.top?.type !== "#" &&
     neighbours?.bottom?.type === "#"
   )
-    return { path: "./src/assets/arrowCornerSquare.png", rotation: "90deg" };
+    return { path: arrowCornerSquare, rotation: "90deg" };
   if (
     neighbours?.left?.type === "#" &&
     neighbours?.right?.type !== "#" &&
     neighbours?.top?.type === "#" &&
     neighbours?.bottom?.type !== "#"
   )
-    return { path: "./src/assets/arrowCornerSquare.png", rotation: "-90deg" };
+    return { path: arrowCornerSquare, rotation: "-90deg" };
   if (
     neighbours?.left?.type === "#" &&
     neighbours?.right?.type !== "#" &&
     neighbours?.top?.type !== "#" &&
     neighbours?.bottom?.type === "#"
   )
-    return { path: "./src/assets/arrowCornerSquare.png", rotation: "180deg" };
+    return { path: arrowCornerSquare, rotation: "180deg" };
   if (
     neighbours?.left?.type !== "#" &&
     neighbours?.right?.type !== "#" &&
     neighbours?.top?.type !== "#" &&
     neighbours?.bottom?.type === "#"
   )
-    return { path: "./src/assets/arrowEnd.png", rotation: "0deg" };
+    return { path: arrowEnd, rotation: "0deg" };
   if (
     neighbours?.left?.type !== "#" &&
     neighbours?.right?.type !== "#" &&
     neighbours?.top?.type === "#" &&
     neighbours?.bottom?.type !== "#"
   )
-    return { path: "./src/assets/arrowEnd.png", rotation: "180deg" };
+    return { path: arrowEnd, rotation: "180deg" };
   if (
     neighbours?.left?.type === "#" &&
     neighbours?.right?.type !== "#" &&
     neighbours?.top?.type !== "#" &&
     neighbours?.bottom?.type !== "#"
   )
-    return { path: "./src/assets/arrowEnd.png", rotation: "90deg" };
+    return { path: arrowEnd, rotation: "90deg" };
   if (
     neighbours?.left?.type !== "#" &&
     neighbours?.right?.type === "#" &&
     neighbours?.top?.type !== "#" &&
     neighbours?.bottom?.type !== "#"
   )
-    return { path: "./src/assets/arrowEnd.png", rotation: "-90deg" };
+    return { path: arrowEnd, rotation: "-90deg" };
 
-  return { path: "./src/assets/arrowEnd.png", rotation: 0 };
+  return { path: arrowEnd, rotation: "0deg" };
 };
