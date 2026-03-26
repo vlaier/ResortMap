@@ -50,7 +50,7 @@ export function ResortMap({
         </div>
       )}
       {resortLayout.map((row: ResortObject[], rowIndex: number) => (
-        <div key={rowIndex} style={{ display: "flex" }}>
+        <div key={rowIndex} className="flex justify-center ">
           {row.map((cell, cellIndex) => (
             <React.Fragment key={cell.id}>
               {renderResortTile(

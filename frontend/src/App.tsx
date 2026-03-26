@@ -16,16 +16,7 @@ function App() {
       <div>
         <h1>Resort Layout</h1>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "fit-content",
-            border: "1px solid red",
-            backgroundColor: "lightblue",
-            gap: "0px",
-          }}
-        >
+        <div className="bg-gray-200 flex flex-col justify-center">
           <ResortMap resortLayout={data} />
         </div>
       </div>

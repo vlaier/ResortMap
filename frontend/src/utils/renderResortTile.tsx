@@ -25,12 +25,7 @@ export const renderResortTile = (
           width={20}
           height={20}
           onClick={() => handleCabanaClick()}
-          style={{
-            background: layout.isBooked ? "red" : "green",
-            cursor: layout.isBooked ? "not-allowed" : "pointer",
-            borderRadius: "4px",
-            backgroundBlendMode: "overlay",
-          }}
+          className={`${layout.isBooked ? "bg-red-600/40 cursor-not-allowed" : "bg-green-600/60 cursor-pointer"}`}
         />
       );
     case "p":
