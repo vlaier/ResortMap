@@ -17,7 +17,9 @@ export const useCabanaBooking = () => {
     },
     onMutate: async (newBooking) => {
       await queryClient.cancelQueries({ queryKey: ["resortLayout"] });
-      const previousLayout = queryClient.getQueryData(["resortLayout"]);
+      const previousLayout = queryClient.getQueryData<ResortObject[][]>([
+        "resortLayout",
+      ]);
       queryClient.setQueryData(
         ["resortLayout"],
         (oldLayout: ResortObject[][]) => {
