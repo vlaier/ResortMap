@@ -50,7 +50,8 @@ class ResortState {
   checkIfBookingDataIsValid(bookingData: Booking) {
     const filtredBookings = this.bookings.filter((booking) => {
       return (
-        booking.name === bookingData.name && booking.room === bookingData.room
+        booking.guestName === bookingData?.guestName &&
+        Number(booking.room) === bookingData?.room
       );
     });
     return !!filtredBookings.length;
@@ -68,13 +69,14 @@ class ResortState {
   bookCabana(cabanaId: string, booking: Booking) {
     const cabana = this.findCabanaById(cabanaId);
     if (!cabana) {
-      return new Error("Cabana not found");
+      throw new Error("Cabana not found");
     }
     if (cabana.isBooked) {
-      return new Error("Cabana already booked");
+      throw new Error("Cabana already booked");
     }
     cabana.isBooked = true;
     cabana.bookedBy = booking;
+    console.log("Cabana booked successfully", { cabanaId, booking });
   }
 }
 export const state = ResortState.getInstance();
