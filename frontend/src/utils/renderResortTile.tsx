@@ -7,7 +7,7 @@ import poolImage from "../assets/pool.png";
 import chaletImage from "../assets/houseChimney.png";
 
 const interactiveTileClassName =
-  "flex h-[var(--mobile-tile-size)] w-[var(--mobile-tile-size)] shrink-0 items-center justify-center rounded-[max(6px,calc(var(--mobile-tile-size)*0.3))] border transition sm:h-8 sm:w-8 sm:rounded-[12px] md:h-9 md:w-9 md:rounded-[13px] lg:h-10 lg:w-10 lg:rounded-[14px] xl:h-11 xl:w-11 xl:rounded-[16px]";
+  "flex h-[var(--mobile-tile-size)] w-[var(--mobile-tile-size)] shrink-0 items-center justify-center rounded-[max(6px,calc(var(--mobile-tile-size)*0.3))] border transition duration-200 ease-out sm:h-8 sm:w-8 sm:rounded-[12px] md:h-9 md:w-9 md:rounded-[13px] lg:h-10 lg:w-10 lg:rounded-[14px] xl:h-11 xl:w-11 xl:rounded-[16px]";
 
 const staticTileClassName =
   "flex h-[var(--mobile-tile-size)] w-[var(--mobile-tile-size)] shrink-0 items-center justify-center sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 xl:h-11 xl:w-11";
@@ -36,7 +36,7 @@ export const renderResortTile = (
           className={`${interactiveTileClassName} shadow-[0_10px_16px_rgba(46,35,20,0.1)] ${
             layout.isBooked
               ? "cursor-not-allowed border-[rgba(183,88,76,0.2)] bg-[linear-gradient(180deg,rgba(255,236,232,0.98),rgba(248,207,199,0.94))] saturate-90"
-              : "cursor-pointer border-[rgba(70,140,86,0.25)] bg-[linear-gradient(180deg,rgba(236,251,241,0.96),rgba(204,239,215,0.95))] hover:-translate-y-0.5 hover:border-[rgba(64,113,75,0.38)] hover:shadow-[0_16px_26px_rgba(46,35,20,0.14)] focus-visible:-translate-y-0.5 focus-visible:border-[rgba(64,113,75,0.38)] focus-visible:shadow-[0_16px_26px_rgba(46,35,20,0.14)] focus-visible:outline-none"
+              : "cursor-pointer border-[rgba(70,140,86,0.25)] bg-[linear-gradient(180deg,rgba(236,251,241,0.96),rgba(204,239,215,0.95))] hover:-translate-y-0.5 hover:scale-[1.03] hover:border-[rgba(64,113,75,0.38)] hover:shadow-[0_16px_26px_rgba(46,35,20,0.14)] active:scale-[0.98] focus-visible:-translate-y-0.5 focus-visible:scale-[1.03] focus-visible:border-[rgba(64,113,75,0.38)] focus-visible:shadow-[0_16px_26px_rgba(46,35,20,0.14)] focus-visible:outline-none"
           }`}
           aria-label={
             layout.isBooked
@@ -62,7 +62,7 @@ export const renderResortTile = (
     case "p":
       return (
         <div
-          className={`${interactiveTileClassName} cursor-default border-transparent bg-[radial-gradient(circle_at_30%_30%,rgba(119,225,255,0.75),rgba(35,133,201,0.95))]`}
+          className={`${interactiveTileClassName} cursor-default border-transparent bg-[radial-gradient(circle_at_30%_30%,rgba(119,225,255,0.75),rgba(35,133,201,0.95))] transition-transform duration-300 hover:-translate-y-0.5`}
           title="Pool zone"
         >
           <img
@@ -94,7 +94,7 @@ export const renderResortTile = (
     case "c":
       return (
         <div
-          className={`${interactiveTileClassName} cursor-default border-transparent bg-[linear-gradient(180deg,rgba(245,232,207,0.95),rgba(214,182,141,0.95))]`}
+          className={`${interactiveTileClassName} cursor-default border-[rgba(140,104,66,0.22)] bg-[linear-gradient(180deg,rgba(245,232,207,0.98),rgba(220,188,145,0.96))] shadow-[inset_0_1px_0_rgba(255,255,255,0.35)] transition-transform duration-300 hover:-translate-y-0.5 hover:scale-[1.02]`}
           title="Chalet"
         >
           <img
@@ -102,7 +102,7 @@ export const renderResortTile = (
             alt="Chalet"
             width={26}
             height={26}
-            className="h-[calc(var(--mobile-tile-size)*0.62)] w-[calc(var(--mobile-tile-size)*0.62)] object-contain sm:h-5 sm:w-5 md:h-5.5 md:w-5.5 lg:h-6.5 lg:w-6.5"
+            className="h-[calc(var(--mobile-tile-size)*0.82)] w-[calc(var(--mobile-tile-size)*0.82)] object-contain sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-8 lg:w-8"
           />
         </div>
       );

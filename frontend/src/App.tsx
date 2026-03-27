@@ -13,9 +13,6 @@ const eyebrowClassName =
 
 const heroCopyClassName = "max-w-[34rem] text-[1.02rem] text-[#5d5348]";
 
-const statusPillClassName =
-  "w-fit rounded-full bg-[rgba(31,24,17,0.88)] px-3 py-2 text-[0.82rem] text-[#fff8f0] sm:px-4 sm:py-2.5 sm:text-sm";
-
 function App() {
   const { data, isLoading, error } = useResortLayout();
 
@@ -26,18 +23,36 @@ function App() {
         <div className="pointer-events-none absolute bottom-20 left-8 z-0 h-72 w-72 rounded-full bg-[rgba(255,204,126,0.18)] blur-xl" />
         <div className="relative z-10 mx-auto grid max-w-300 gap-6">
           <section
-            className={`${surfaceClassName} grid min-h-72 grid-cols-1 content-center gap-6 p-6 md:p-10`}
+            className={`${surfaceClassName} grid min-h-72 grid-cols-1 content-center gap-6 p-6 animate-[resort-fade-up_520ms_ease-out_both] md:p-10`}
           >
             <p className={eyebrowClassName}>Resort board</p>
-            <h1 className="max-w-[12ch] font-[Georgia,_Times_New_Roman,_serif] text-[clamp(2.8rem,6vw,4.9rem)] leading-[1.02] text-[#1f1811]">
+            <h1 className="max-w-[12ch] font-[Georgia,Times_New_Roman,serif] text-[clamp(2.8rem,6vw,4.9rem)] leading-[1.02] text-[#1f1811]">
               Preparing the live layout.
             </h1>
             <p className={heroCopyClassName}>
               Pulling the latest chalet, pool, and cabana state from the resort
               backend.
             </p>
-            <div className={statusPillClassName}>
-              Refreshing availability...
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div className="flex items-center gap-3 rounded-full border border-[rgba(143,113,66,0.18)] bg-[rgba(255,255,255,0.68)] px-4 py-3 shadow-[0_12px_30px_rgba(56,40,18,0.08)]">
+                <span className="h-5 w-5 animate-spin rounded-full border-2 border-[rgba(138,98,54,0.18)] border-t-[#8a6236]" />
+                <span className="text-sm font-semibold text-[#5d5348]">
+                  Refreshing availability...
+                </span>
+              </div>
+            </div>
+
+            <div className="grid gap-3 rounded-3xl border border-[rgba(143,113,66,0.14)] bg-[rgba(255,255,255,0.42)] p-4 backdrop-blur-sm">
+              <div className="h-3 w-28 animate-pulse rounded-full bg-[rgba(138,98,54,0.18)]" />
+              <div className="grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-8">
+                {Array.from({ length: 24 }).map((_, index) => (
+                  <div
+                    key={index}
+                    className="aspect-square animate-pulse rounded-xl bg-[rgba(138,98,54,0.12)]"
+                    style={{ animationDelay: `${index * 40}ms` }}
+                  />
+                ))}
+              </div>
             </div>
           </section>
         </div>
@@ -52,10 +67,10 @@ function App() {
         <div className="pointer-events-none absolute bottom-20 left-8 z-0 h-72 w-72 rounded-full bg-[rgba(255,204,126,0.18)] blur-xl" />
         <div className="relative z-10 mx-auto grid max-w-300 gap-6">
           <section
-            className={`${surfaceClassName} grid min-h-72 grid-cols-1 content-center gap-6 p-6 md:p-10`}
+            className={`${surfaceClassName} grid min-h-72 grid-cols-1 content-center gap-6 p-6 animate-[resort-fade-up_520ms_ease-out_both] md:p-10`}
           >
             <p className={eyebrowClassName}>Connection issue</p>
-            <h1 className="max-w-[12ch] font-[Georgia,_Times_New_Roman,_serif] text-[clamp(2.8rem,6vw,4.9rem)] leading-[1.02] text-[#1f1811]">
+            <h1 className="max-w-[12ch] font-[Georgia,Times_New_Roman,serif] text-[clamp(2.8rem,6vw,4.9rem)] leading-[1.02] text-[#1f1811]">
               Unable to load the resort map.
             </h1>
             <p className={heroCopyClassName}>
@@ -81,16 +96,16 @@ function App() {
 
   return (
     <main className={pageShellClassName}>
-      <div className="pointer-events-none absolute right-10 top-12 -z-0 h-56 w-56 rounded-full bg-[rgba(115,205,215,0.18)] blur-xl" />
-      <div className="pointer-events-none absolute bottom-20 left-8 -z-0 h-72 w-72 rounded-full bg-[rgba(255,204,126,0.18)] blur-xl" />
+      <div className="pointer-events-none absolute right-10 top-12 z-0 h-56 w-56 rounded-full bg-[rgba(115,205,215,0.18)] blur-xl" />
+      <div className="pointer-events-none absolute bottom-20 left-8 z-0 h-72 w-72 rounded-full bg-[rgba(255,204,126,0.18)] blur-xl" />
 
-      <div className="relative z-10 mx-auto grid max-w-[1200px] gap-6">
+      <div className="relative z-10 mx-auto grid max-w-300 gap-6">
         <section
-          className={`${surfaceClassName} grid items-end gap-4 p-4 sm:gap-6 sm:p-5 md:grid-cols-[minmax(0,1.7fr)_minmax(18rem,1fr)] md:p-10`}
+          className={`${surfaceClassName} grid items-end gap-4 p-4 animate-[resort-fade-up_520ms_ease-out_both] sm:gap-6 sm:p-5 md:grid-cols-[minmax(0,1.7fr)_minmax(18rem,1fr)] md:p-10`}
         >
-          <div className="max-w-[38rem]">
+          <div className="max-w-152">
             <p className={eyebrowClassName}>Resort operations</p>
-            <h1 className="mb-4 max-w-[12ch] font-[Georgia,_Times_New_Roman,_serif] text-[clamp(2.8rem,6vw,4.9rem)] leading-[1.02] text-[#1f1811]">
+            <h1 className="mb-4 max-w-[12ch] font-[Georgia,Times_New_Roman,serif] text-[clamp(2.8rem,6vw,4.9rem)] leading-[1.02] text-[#1f1811]">
               Live booking board for the full property.
             </h1>
             <p className={heroCopyClassName}>
@@ -108,7 +123,7 @@ function App() {
                 {cabanas.length}
               </strong>
             </article>
-            <article className="rounded-[20px] border border-[rgba(117,88,54,0.12)] bg-[linear-gradient(135deg,_rgba(225,248,233,0.95),_rgba(203,239,223,0.88))] p-4 backdrop-blur-[18px]">
+            <article className="rounded-[20px] border border-[rgba(117,88,54,0.12)] bg-[linear-gradient(135deg,rgba(225,248,233,0.95),rgba(203,239,223,0.88))] p-4 backdrop-blur-[18px]">
               <span className="mb-1 block text-[0.85rem] text-[#6d6258]">
                 Available now
               </span>
@@ -116,7 +131,7 @@ function App() {
                 {availableCount}
               </strong>
             </article>
-            <article className="rounded-[20px] border border-[rgba(117,88,54,0.12)] bg-[linear-gradient(135deg,_rgba(255,231,226,0.95),_rgba(252,209,202,0.88))] p-4 backdrop-blur-[18px]">
+            <article className="rounded-[20px] border border-[rgba(117,88,54,0.12)] bg-[linear-gradient(135deg,rgba(255,231,226,0.95),rgba(252,209,202,0.88))] p-4 backdrop-blur-[18px]">
               <span className="mb-1 block text-[0.85rem] text-[#6d6258]">
                 Booked
               </span>
@@ -127,20 +142,19 @@ function App() {
           </div>
         </section>
 
-        <section className={`${surfaceClassName} p-3 sm:p-4 md:p-6`}>
+        <section
+          className={`${surfaceClassName} p-3 animate-[resort-fade-up_520ms_ease-out_120ms_both] sm:p-4 md:p-6`}
+        >
           <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className={eyebrowClassName}>Interactive layout</p>
-              <h2 className="font-[Georgia,_Times_New_Roman,_serif] text-[clamp(1.4rem,3vw,2rem)] leading-[1.05] text-[#1f1811]">
+              <h2 className="font-[Georgia,Times_New_Roman,serif] text-[clamp(1.4rem,3vw,2rem)] leading-[1.05] text-[#1f1811]">
                 Tap any available cabana to place a booking.
               </h2>
             </div>
-            <div className={statusPillClassName}>
-              Auto refresh every 40 seconds
-            </div>
           </div>
 
-          <div className="rounded-3xl border border-[rgba(122,98,68,0.12)] bg-[linear-gradient(180deg,_rgba(244,236,220,0.8),_rgba(239,229,211,0.92)),repeating-linear-gradient(45deg,_rgba(155,125,81,0.05),_rgba(155,125,81,0.05)_10px,_rgba(255,255,255,0.08)_10px,_rgba(255,255,255,0.08)_20px)] p-2 sm:p-3 md:p-5">
+          <div className="rounded-3xl border border-[rgba(122,98,68,0.12)] bg-[linear-gradient(180deg,rgba(244,236,220,0.8),rgba(239,229,211,0.92)),repeating-linear-gradient(45deg,rgba(155,125,81,0.05),rgba(155,125,81,0.05)_10px,rgba(255,255,255,0.08)_10px,rgba(255,255,255,0.08)_20px)] p-2 sm:p-3 md:p-5">
             <ResortMap resortLayout={resortLayout} />
           </div>
         </section>

@@ -22,7 +22,7 @@ export function ResortMap({
     "--mobile-tile-size": `clamp(0.72rem, calc((100vw - 3.75rem) / ${maxColumns}), 1.7rem)`,
   };
 
-  const handleSubmitBooking = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmitBooking = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!selectedCabanaId) return;
     const formData = new FormData(e.currentTarget);
@@ -39,19 +39,19 @@ export function ResortMap({
     <React.Fragment>
       <div className="mb-3 sm:mb-4">
         <div className="flex flex-wrap gap-2.5" aria-label="Map legend">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(120,92,60,0.12)] bg-[rgba(255,255,255,0.72)] px-3 py-2 text-sm text-[#453a31]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(120,92,60,0.12)] bg-[rgba(255,255,255,0.72)] px-3 py-2 text-sm text-[#453a31] transition-transform duration-200 hover:-translate-y-0.5">
             <span className="h-[0.7rem] w-[0.7rem] rounded-full bg-[#2f9e62]" />
             Available cabana
           </div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(120,92,60,0.12)] bg-[rgba(255,255,255,0.72)] px-3 py-2 text-sm text-[#453a31]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(120,92,60,0.12)] bg-[rgba(255,255,255,0.72)] px-3 py-2 text-sm text-[#453a31] transition-transform duration-200 hover:-translate-y-0.5">
             <span className="h-[0.7rem] w-[0.7rem] rounded-full bg-[#d45a4b]" />
             Booked cabana
           </div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(120,92,60,0.12)] bg-[rgba(255,255,255,0.72)] px-3 py-2 text-sm text-[#453a31]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(120,92,60,0.12)] bg-[rgba(255,255,255,0.72)] px-3 py-2 text-sm text-[#453a31] transition-transform duration-200 hover:-translate-y-0.5">
             <span className="h-[0.7rem] w-[0.7rem] rounded-full bg-[#34a4d8]" />
             Pool
           </div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(120,92,60,0.12)] bg-[rgba(255,255,255,0.72)] px-3 py-2 text-sm text-[#453a31]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(120,92,60,0.12)] bg-[rgba(255,255,255,0.72)] px-3 py-2 text-sm text-[#453a31] transition-transform duration-200 hover:-translate-y-0.5">
             <span className="h-[0.7rem] w-[0.7rem] rounded-full bg-[#8c6842]" />
             Chalet
           </div>
@@ -65,7 +65,7 @@ export function ResortMap({
           onClick={() => setShowBookingForm(false)}
         >
           <div
-            className="w-full max-w-120 rounded-3xl border border-[rgba(116,86,49,0.14)] bg-[#fffaf2] p-5 shadow-[0_30px_80px_rgba(24,18,12,0.24)]"
+            className="w-full max-w-120 rounded-3xl border border-[rgba(116,86,49,0.14)] bg-[#fffaf2] p-5 shadow-[0_30px_80px_rgba(24,18,12,0.24)] animate-[resort-soft-pop_220ms_ease-out_both]"
             role="dialog"
             aria-modal="true"
             aria-labelledby="booking-title"
